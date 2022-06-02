@@ -11,7 +11,7 @@ const App = () => {
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
-      <Pressable onPress={() => setBoolean(!Boolean)} />
+      <Pressable style={{backgroundColor:"red",width:100,height:50}} onPress={() => setBoolean(!Boolean)} />
       {Boolean &&
         <Text>First Component</Text>
       }
