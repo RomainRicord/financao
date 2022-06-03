@@ -1,24 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Pressable } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet} from 'react-native';
 
-import React, { useState } from 'react';
+import Navigation from './src/Navigation/Navigation';
 
-const App = () => {
 
-  const [Boolean, setBoolean] = useState(true);
 
+{/* ____________function App_____________ */}   
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-      <Pressable style={{backgroundColor:"red",width:100,height:50}} onPress={() => setBoolean(!Boolean)} />
-      {Boolean &&
-        <Text>First Component</Text>
-      }
-      {!Boolean &&
-        <Text>Second COmponent</Text>
-      }
-    </View>
+    <Navigation/>    
   );
 }
 
@@ -27,7 +17,7 @@ export default App
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'ffff',
     alignItems: 'center',
     justifyContent: 'center',
   },
