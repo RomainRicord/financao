@@ -13,22 +13,19 @@ function HomeScreen({navigation}) {
     {/* Comment here */}    
             <StatusBar style="auto" />
          
-            <Image style={styles.image} source={require("./../../assets/logo.jpg")} />
+            <Image style={styles.image} source={require("./../../assets/euro.gif")} />
 
-            <Text>Welcome to my super application !!!</Text>
-            <Text>Beavis and Butt-Head</Text>
+            <Text>Wntrez votre application financière préférée!!!</Text>
+            <Text>Financao</Text>
 
         
             <TouchableOpacity style={styles.loginBtn}
               onPress={() => navigation.navigate('Login')}
             >
-                <Text style={styles.loginText}>Se connecter</Text>
+                <Text style={styles.loginText}>Entrez</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.signinBtn}
-            onPress={() => navigation.navigate('Signin')}>
-                <Text style={styles.signinText}>S'inscrire</Text>
-            </TouchableOpacity>
+
 
 
 
