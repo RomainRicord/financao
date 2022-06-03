@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import { StyleSheet} from 'react-native';
 
-import Navigation from './src/Navigation/Navigation';
-
+//import Navigation from './src/Navigation/Navigation';
+import HomeScreen from './src/Screens/HomeScreen';
 
 
 {/* ____________function App_____________ */}   
 function App() {
   return (
-    <Navigation/>    
+    <HomeScreen/>    
   );
 }
 

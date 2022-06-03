@@ -1,41 +1,31 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import {  StyleSheet,  Text,  View,  Image,  TouchableOpacity,} from "react-native";
- 
-function HomeScreen({navigation}) {
+import {  StyleSheet,  Text,  View,  Image,  TouchableOpacity,Pressable} from "react-native";
+import TransactionComponent from "../Components/TransactionComponent";
 
+
+const HomeScreen = ({navigation}) => {
  
   return (
-
-
-        <View style={styles.container}>
-            
-    {/* Comment here */}    
-            <StatusBar style="auto" />
-         
-            <Image style={styles.image} source={require("./../../assets/logo.jpg")} />
-
-            <Text>Welcome to my super application !!!</Text>
-            <Text>Beavis and Butt-Head</Text>
-
-        
-            <TouchableOpacity style={styles.loginBtn}
-              onPress={() => navigation.navigate('Login')}
-            >
-                <Text style={styles.loginText}>Se connecter</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.signinBtn}
-            onPress={() => navigation.navigate('Signin')}>
-                <Text style={styles.signinText}>S'inscrire</Text>
-            </TouchableOpacity>
-
-
+  <View style={styles.container}>
+        <Text style={{fontSize:40}}>Welcome Mayer Franklin!</Text>
+        <View style={{backgroundColor:'rgb(32,32,32)',height:200,width:600}}>
 
         </View>
-
-  );
-}
+        <View style={{display:'flex',justifyContent:'space-around',alignItems:'center',flexDirection:'row'}}>
+          <Pressable style={[styles.button,{backgroundColor:'green'}]} onPress={() => {}}>
+            <Text style={styles.textbutton}>Revenu</Text>
+          </Pressable>
+          <Pressable style={[styles.button,{backgroundColor:'red'}]} onPress={() => {}}>
+            <Text style={styles.textbutton}>Dépense</Text>
+          </Pressable>
+        </View>
+        <View style={{backgroundColor:'rgb(200,200,200)',height:300,width:600,flex:1}}>
+          <TransactionComponent name="Nom de la transaction" category="Catégorie" date="Date" montant={-10} />
+          <TransactionComponent name="Nom de la transaction" category="Catégorie" date="Date" montant={10} />
+        </View>
+  </View>
+)}
 
 export default HomeScreen
  
@@ -46,7 +36,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
- 
+  button:{
+    borderRadius:20,
+    width:200,
+    height:50,
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+    margin:20
+  },
+  textbutton:{
+    fontSize:20,
+    textAlign:'center',
+    padding:10,
+    color:'#fff'
+  },
   image: {
     marginBottom: 40,
         width: 200,
