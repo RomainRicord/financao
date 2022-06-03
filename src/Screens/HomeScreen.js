@@ -13,7 +13,7 @@ function HomeScreen({navigation}) {
     {/* Comment here */}    
             <StatusBar style="auto" />
          
-            <Image style={styles.image} source={require("./../../assets/euro.gif")} />
+            <Image style={styles.image} source={require("./../../assets/images/euro.gif")} />
 
             <Text>Wntrez votre application financière préférée!!!</Text>
             <Text>Financao</Text>
