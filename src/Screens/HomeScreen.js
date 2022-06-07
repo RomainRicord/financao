@@ -4,48 +4,20 @@ import {  StyleSheet,  Text,  View,  Image,  TouchableOpacity,Pressable,ScrollVi
 import TransactionComponent from "../Components/TransactionComponent";
 import UserListComponent from "../Components/UserListComponent";
 
+import {data_} from "../json/data";
+
+import data from "../../assets/data.json";
+
 
 const HomeScreen = (props) => {
   const [userselected, setUserSelected] = useState(0)
-  const [revenuuser, setRevenuUser] = useState([])
-
-  useEffect(() => {
-
-    console.log(revenuuser)
-    setRevenuUser([])
-
-    {require('../../assets/data.json').map((item, index) => {
-     
-      {item.expenses.map((item2, index2) => {              
-
-        //console.log(item2.montant,item2.amount)
-
-        if (Number(item2.amount.replace("€","").replace(",","")) > 0) {
-
-          let revenu_ = revenuuser
-
-          if (typeof(revenu_[index]) == "undefined") {
-            revenu_[index] = 0
-          }
-          
-          console.log("yo",revenuuser.length)
-          console.log("aditionne",item2.amount,index)
-          revenu_[index] = Math.ceil(Number(revenu_[index]) + Number(item2.amount.replace("€","").replace(",","")))
-          setRevenuUser(revenu_)
-          console.log("revenuuser",revenuuser,revenu_)
-        }
-
-      })}
-    })}
-  })
+  //const [data_, setdata_] = useState([])
       
-
-  
   return (
   <View style={styles.container}>
-        <Text style={{fontSize:20,marginTop:40,marginBottom:20,textAlign:'center'}} >Welcome Mayer Franklin!</Text>
+        <Text style={{fontSize:20,marginTop:40,marginBottom:20,textAlign:'center'}}>Welcome {data[userselected].user}!</Text>
         <View style={{backgroundColor:'rgb(32,32,32)',height:120,display:'flex',justifyContent:'center'}}>
-          <UserListComponent listrevenus={revenuuser} setUserSelected={setUserSelected} />
+          <UserListComponent listrevenus={data_()} setUserSelected={setUserSelected} />
         </View>
         <View style={{display:'flex',justifyContent:'space-around',alignItems:'center',flexDirection:'row'}}>
           <Pressable style={[styles.button,{backgroundColor:'green'}]} onPress={() => {}}>

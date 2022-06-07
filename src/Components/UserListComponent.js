@@ -8,6 +8,8 @@ const UserListComponent = (props) => {
   const [text, setText] = React.useState('');
   const {setUserSelected,listrevenus} = props;
 
+  //console.log(listrevenus)
+
   const list = require ('../../assets/data.json');
 
     

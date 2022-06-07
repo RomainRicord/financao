@@ -11,7 +11,9 @@ return (
     <View style={styles.card}>
       <Text style={styles.prenom}>{item.user.split(' ')[0]}</Text>
       <Text style={styles.nom}>{item.user.split(' ')[1]}</Text>
-      <Text style={styles.solde}>{revenu}</Text>
+      <Text style={styles.solde}>{(Number(revenu)).toLocaleString('en-US', {style: 'currency',
+  currency: 'USD',
+})}</Text>
       <Text>Balance euro</Text>
      
     </View>
