@@ -13,7 +13,7 @@ import ChartComponent from './src/Components/ChartComponent';
 {/* ____________function App_____________ */}   
 function App() {
   return (
-    <HomeScreen/>    
+    <ChartComponent/>    
   );
 }
 

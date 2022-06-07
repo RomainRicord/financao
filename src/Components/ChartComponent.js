@@ -10,43 +10,31 @@ import {
     StackedBarChart
   } from 'react-native-chart-kit'
 
+import {chart} from '../json/chart'
+
 const ChartComponent = () => {
 
-
-    const line = {
-        labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN'],
-        datasets: [
-          {
-            data: [20, 45, 28, 80, 99, 43],
-            strokeWidth: 2, // optional
-          },
-        ],
-      };
-
     return (
-        <View>
-        <Text>
-          Bezier Line Chart
-        </Text>
+        <View style={styles.container}>
+        
         <BarChart
-          data={line}
+          data={chart().line}
           width={Dimensions.get('window').width} // from react-native
           height={220}
-          yAxisLabel={'$'}
+          yAxisLabel={'€'}
           chartConfig={{
-            backgroundColor: '#e26a00',
-            backgroundGradientFrom: '#fb8c00',
-            backgroundGradientTo: '#ffa726',
+            backgroundColor: '#07034e',
+            backgroundGradientFrom: '#07034e',
+            backgroundGradientTo: '#090979',
             decimalPlaces: 2, // optional, defaults to 2dp
             color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
             style: {
-              borderRadius: 16
+              borderRadius: 0
             }
           }}
           bezier
           style={{
-            marginVertical: 8,
-            borderRadius: 16
+            borderRadius: 0
           }}
         />
       </View>      
@@ -59,6 +47,6 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent:'center',
-        alignItems:'center',
+      alignItems:'center',
     }
 });
