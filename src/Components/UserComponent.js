@@ -11,8 +11,10 @@ return (
     <View style={styles.card}>
       <Text style={styles.prenom}>{item.user.split(' ')[0]}</Text>
       <Text style={styles.nom}>{item.user.split(' ')[1]}</Text>
-      <Text style={styles.solde}>{revenu}</Text>
-      <Text>Balance euro</Text>
+      <Text style={Number(revenu) < 0 ? styles.soldenegative : styles.solde}>{(Number(revenu)).toLocaleString('en-US', {style: 'currency',
+  currency: 'USD',
+})}</Text>
+      <Text>Solde</Text>
      
     </View>
                    
@@ -39,11 +41,17 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 1,
     height: 100,
+    width:150
   },
   solde: {
     fontWeight: 'bold',
     fontSize: 20,
     color: 'blue',
+  },
+  soldenegative: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: 'red',
   },
   prenom: {
     fontSize: 20,

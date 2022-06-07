@@ -1,15 +1,15 @@
 
 import React from 'react'
-import { View, Text, ScrollView, StyleSheet,Pressable} from 'react-native';
+import { ScrollView, StyleSheet,Pressable} from 'react-native';
 import UserComponent from './UserComponent';
-
 
 const UserListComponent = (props) => { 
   const [text, setText] = React.useState('');
   const {setUserSelected,listrevenus} = props;
 
+  //console.log(listrevenus)
+
   const list = require ('../../assets/data.json');
-  
     
   return (
           

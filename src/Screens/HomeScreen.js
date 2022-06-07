@@ -4,48 +4,22 @@ import {  StyleSheet,  Text,  View,  Image,  TouchableOpacity,Pressable,ScrollVi
 import TransactionComponent from "../Components/TransactionComponent";
 import UserListComponent from "../Components/UserListComponent";
 
+import {data_} from "../json/data";
+
+import {expensesandincomes} from '../json/expensesandincomes'
+
+import data from "../../assets/data.json";
+
 
 const HomeScreen = (props) => {
   const [userselected, setUserSelected] = useState(0)
-  const [revenuuser, setRevenuUser] = useState([])
+  //const [data_, setdata_] = useState([])
 
-  useEffect(() => {
-
-    console.log(revenuuser)
-    setRevenuUser([])
-
-    {require('../../assets/data.json').map((item, index) => {
-     
-      {item.expenses.map((item2, index2) => {              
-
-        //console.log(item2.montant,item2.amount)
-
-        if (Number(item2.amount.replace("€","").replace(",","")) > 0) {
-
-          let revenu_ = revenuuser
-
-          if (typeof(revenu_[index]) == "undefined") {
-            revenu_[index] = 0
-          }
-          
-          console.log("yo",revenuuser.length)
-          console.log("aditionne",item2.amount,index)
-          revenu_[index] = Math.ceil(Number(revenu_[index]) + Number(item2.amount.replace("€","").replace(",","")))
-          setRevenuUser(revenu_)
-          console.log("revenuuser",revenuuser,revenu_)
-        }
-
-      })}
-    })}
-  })
-      
-
-  
   return (
   <View style={styles.container}>
-        <Text style={{fontSize:20,marginTop:40,marginBottom:20,textAlign:'center'}}>Welcome Mayer Franklin!</Text>
-        <View style={{backgroundColor:'rgb(32,32,32)',height:120,display:'flex',justifyContent:'center'}}>
-          <UserListComponent listrevenus={revenuuser} setUserSelected={setUserSelected} />
+        <Text style={{fontSize:20,marginTop:40,marginBottom:20,textAlign:'center'}}>Welcome {data[userselected].user}!</Text>
+        <View style={{backgroundColor:'white',height:120,display:'flex',justifyContent:'center'}}>
+          <UserListComponent listrevenus={data_()} setUserSelected={setUserSelected} />
         </View>
         <View style={{display:'flex',justifyContent:'space-around',alignItems:'center',flexDirection:'row'}}>
           <Pressable style={[styles.button,{backgroundColor:'green'}]} onPress={() => {}}>
@@ -58,13 +32,9 @@ const HomeScreen = (props) => {
         <ScrollView style={{height:300,marginTop:20,marginBottom:40,flex:1,display:'flex'}}>
           
           
-            {require('../../assets/data.json').map((item, index) => (
-              <View key={index}>
-              {(index == userselected) && item.expenses.map((item2, index2) => {              
-
-                  return(<TransactionComponent key={index2} name={item2.category} category={item2.category} date={item2.date} montant={Number(item2.amount.replace("€","").replace(",",""))} />)
-                }
-              )}
+            {expensesandincomes().two[userselected].sort((a,b) => new Date(b.date) - new Date(a.date)).map((item, index) => (
+              <View key={index}>                 
+                <TransactionComponent name={item.category} category={item.category} date={item.date} montant={((typeof(item._id_income) == "undefined") ? -Number(item.amount.replace("€","").replace(",","")) : Number(item.amount.replace("€","").replace(",","")))} />              
               </View>
             ))}
           
