@@ -6,7 +6,7 @@ import UserComponent from './UserComponent';
 
 const UserListComponent = (props) => { 
   const [text, setText] = React.useState('');
-  const {setUserSelected} = props;
+  const {setUserSelected,listrevenus} = props;
 
   const list = require ('../../assets/data.json');
   
@@ -18,9 +18,9 @@ const UserListComponent = (props) => {
         {list.map((item, index) => {
             return (
                 <Pressable key={index} onPress={() => {
-                  console.log("USER SELECTED:",item.user,"INDEX:",index)
+                  console.log("USER SELECTED:",item.user,"INDEX:",index,"LISTREVENUS:",listrevenus[index])
                   setUserSelected(index)
-                }}><UserComponent item={item} index={index}/></Pressable>
+                }}><UserComponent revenu={listrevenus[index]} item={item} index={index}/></Pressable>
         )
     })}
     </ScrollView>

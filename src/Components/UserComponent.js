@@ -4,14 +4,14 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const UserComponent = (props) => {
 
-const {item, index} = props
+const {item, index,revenu} = props
 
 return ( 
 
     <View style={styles.card}>
       <Text style={styles.prenom}>{item.user.split(' ')[0]}</Text>
       <Text style={styles.nom}>{item.user.split(' ')[1]}</Text>
-      <Text style={styles.solde}>585 €</Text>
+      <Text style={styles.solde}>{revenu}</Text>
       <Text>Balance euro</Text>
      
     </View>
