@@ -8,7 +8,7 @@ import {chart} from '../json/chart'
 const ChartComponent = () => {
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
         
         <BarChart
           data={chart().line}
