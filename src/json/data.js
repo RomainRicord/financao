@@ -4,11 +4,11 @@ export const data_ = () => {
 
     const revenuuser = []
 
-    console.log("data_ init")
+    //console.log("data_ init")
 
     {data.map((item, index) => {
 
-        console.log("Test 2")
+        //console.log("Test 2")
      
         {item.incomes.map((item2, index2) => {              
   

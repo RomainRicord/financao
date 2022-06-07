@@ -6,13 +6,15 @@ import UserListComponent from "../Components/UserListComponent";
 
 import {data_} from "../json/data";
 
+import {expensesandincomes} from '../json/expensesandincomes'
+
 import data from "../../assets/data.json";
 
 
 const HomeScreen = (props) => {
   const [userselected, setUserSelected] = useState(0)
   //const [data_, setdata_] = useState([])
-      
+
   return (
   <View style={styles.container}>
         <Text style={{fontSize:20,marginTop:40,marginBottom:20,textAlign:'center'}}>Welcome {data[userselected].user}!</Text>
@@ -30,13 +32,10 @@ const HomeScreen = (props) => {
         <ScrollView style={{height:300,marginTop:20,marginBottom:40,flex:1,display:'flex'}}>
           
           
-            {require('../../assets/data.json').map((item, index) => (
-              <View key={index}>
-              {(index == userselected) && item.expenses.map((item2, index2) => {              
-
-                  return(<TransactionComponent key={index2} name={item2.category} category={item2.category} date={item2.date} montant={Number(item2.amount.replace("€","").replace(",",""))} />)
-                }
-              )}
+            {expensesandincomes().two[userselected].sort((a,b) => new Date(b.date) - new Date(a.date)).map((item, index) => (
+              <View key={index}>                 
+                <TransactionComponent name={item.category} category={item.category} date={item.date} montant={((typeof(item._id_income) == "undefined") ? -Number(item.amount.replace("€","").replace(",","")) : Number(item.amount.replace("€","").replace(",","")))} />
+              
               </View>
             ))}
           
