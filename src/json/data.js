@@ -9,7 +9,7 @@ export const data_ = () => {
   
           if (Number(item2.amount.replace("€","").replace(",","")) > 0) {
   
-            if (typeof(revenuuser[index]) == "undefined") {
+            if (typeof(revenuuser[index]) == "undefined") { 
                 revenuuser[index] = 0
             }
 

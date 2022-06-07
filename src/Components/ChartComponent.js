@@ -1,14 +1,7 @@
 import React from 'react';
-import {StyleSheet, View,Dimensions,Platfrom,Text} from 'react-native';
+import {StyleSheet, View,Dimensions,SafeAreaView,Text} from 'react-native';
 
-import {
-    LineChart,
-    BarChart,
-    PieChart,
-    ProgressChart,
-    ContributionGraph,
-    StackedBarChart
-  } from 'react-native-chart-kit'
+import {  LineChart,   BarChart,  PieChart,  ProgressChart, ContributionGraph, StackedBarChart} from 'react-native-chart-kit'
 
 import {chart} from '../json/chart'
 
@@ -37,7 +30,7 @@ const ChartComponent = () => {
             borderRadius: 0
           }}
         />
-      </View>      
+      </SafeAreaView>      
     )
 }
 
@@ -49,4 +42,5 @@ const styles = StyleSheet.create({
       justifyContent:'center',
       alignItems:'center',
     }
+    
 });
