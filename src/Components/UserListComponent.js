@@ -1,29 +1,30 @@
 
 import React from 'react'
-import { View, Text, ScrollView, StyleSheet} from 'react-native';
+import { View, Text, ScrollView, StyleSheet,Pressable} from 'react-native';
 import UserComponent from './UserComponent';
 import ChartComponent from './ChartComponent';
 
 
-const UserListComponent = () => { 
+const UserListComponent = (props) => { 
   const [text, setText] = React.useState('');
+  const {setUserSelected,listrevenus} = props;
 
   const list = require ('../../assets/data.json');
 
     
   return (
-
-        <View style={{flex:1}}>
           
-          <ScrollView horizontal={true} style={{display:'flex', flexDirection:'row'}}>
+        <ScrollView horizontal={true} style={{display:'flex', flexDirection:'row'}}>
 
         {list.map((item, index) => {
             return (
-                <UserComponent item={item} key={index} index={index}/>
+                <Pressable key={index} onPress={() => {
+                  console.log("USER SELECTED:",item.user,"INDEX:",index,"LISTREVENUS:",listrevenus[index])
+                  setUserSelected(index)
+                }}><UserComponent revenu={listrevenus[index]} item={item} index={index}/></Pressable>
         )
     })}
     </ScrollView>
-        </View>
   );
 };
 
