@@ -4,11 +4,11 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const UserComponent = (props) => {
 
-const {item, index,revenu} = props
+const {item, index,revenu,userselected} = props
 
 return ( 
 
-    <View style={styles.card}>
+    <View style={[styles.card,userselected == index ? styles.cardoutline : styles.cardnotoutline]}>
       <Text style={styles.prenom}>{item.user.split(' ')[0]}</Text>
       <Text style={styles.nom}>{item.user.split(' ')[1]}</Text>
       <Text style={Number(revenu) < 0 ? styles.soldenegative : styles.solde}>{(Number(revenu)).toLocaleString('en-US', {style: 'currency',
@@ -42,6 +42,14 @@ const styles = StyleSheet.create({
     elevation: 1,
     height: 100,
     width:150
+  },
+  cardoutline:{
+    borderWidth:2,
+    borderColor:'blue',
+  },
+  cardnooutline:{
+    borderWidth:0,
+    borderColor:'blue',
   },
   solde: {
     fontWeight: 'bold',

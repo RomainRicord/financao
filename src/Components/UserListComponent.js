@@ -5,7 +5,7 @@ import UserComponent from './UserComponent';
 
 const UserListComponent = (props) => { 
   const [text, setText] = React.useState('');
-  const {setUserSelected,listrevenus} = props;
+  const {setUserSelected,listrevenus,userselected} = props;
 
   //console.log(listrevenus)
 
@@ -20,7 +20,7 @@ const UserListComponent = (props) => {
                 <Pressable key={index} onPress={() => {
                   console.log("USER SELECTED:",item.user,"INDEX:",index,"LISTREVENUS:",listrevenus[index])
                   setUserSelected(index)
-                }}><UserComponent revenu={listrevenus[index]} item={item} index={index}/></Pressable>
+                }}><UserComponent userselected={userselected} revenu={listrevenus[index]} item={item} index={index}/></Pressable>
         )
     })}
     </ScrollView>

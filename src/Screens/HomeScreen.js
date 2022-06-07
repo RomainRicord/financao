@@ -19,7 +19,7 @@ const HomeScreen = (props) => {
   <View style={styles.container}>
         <Text style={{fontSize:20,marginTop:40,marginBottom:20,textAlign:'center'}}>Welcome {data[userselected].user}!</Text>
         <View style={{backgroundColor:'white',height:120,display:'flex',justifyContent:'center'}}>
-          <UserListComponent listrevenus={data_()} setUserSelected={setUserSelected} />
+          <UserListComponent userselected={userselected} listrevenus={data_()} setUserSelected={setUserSelected} />
         </View>
         <View style={{display:'flex',justifyContent:'space-around',alignItems:'center',flexDirection:'row'}}>
           <Pressable style={[styles.button,{backgroundColor:'green'}]} onPress={() => {}}>
