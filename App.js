@@ -7,7 +7,7 @@ import UserListComponent from './src/Components/UserListComponent';
 
 import TransactionComponent from './src/Components/TransactionComponent';
 import HomeScreen from './src/Screens/HomeScreen';
-
+import ChartComponent from './src/Components/ChartComponent';
 
 
 {/* ____________function App_____________ */}   
