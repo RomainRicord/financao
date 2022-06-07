@@ -13,22 +13,24 @@ const ChartComponent = () => {
         <BarChart
           data={chart().line}
           width={Dimensions.get('window').width} // from react-native
-          height={220}
-          yAxisLabel={'€'}
+          height={600}
+          yAxisSuffix={' €'}
           chartConfig={{
             backgroundColor: '#07034e',
             backgroundGradientFrom: '#07034e',
             backgroundGradientTo: '#090979',
-            decimalPlaces: 2, // optional, defaults to 2dp
+            decimalPlaces: 0, // optional, defaults to 2dp
             color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
             style: {
-              borderRadius: 0
+              borderRadius: 0,
             }
           }}
-          bezier
+          fromZero={true}
           style={{
             borderRadius: 0
           }}
+          showValuesOnTopOfBars={true}
+          yAxisInterval={1}
         />
       </SafeAreaView>      
     )
