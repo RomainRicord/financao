@@ -4,15 +4,16 @@ import { StyleSheet} from 'react-native';
 import Navigation from './src/Navigation/Navigation';
 import UserComponent from './src/Components/UserComponent';
 import UserListComponent from './src/Components/UserListComponent';
-import ChartListComponent from './src/Components/ChartListComponent';
+
 import TransactionComponent from './src/Components/TransactionComponent';
+import HomeScreen from './src/Screens/HomeScreen';
 
 
 
 {/* ____________function App_____________ */}   
 function App() {
   return (
-    <UserListComponent/>    
+    <HomeScreen/>    
   );
 }
 

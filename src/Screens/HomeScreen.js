@@ -43,7 +43,7 @@ const HomeScreen = (props) => {
   
   return (
   <View style={styles.container}>
-        <Text style={{fontSize:20,marginTop:40,marginBottom:20,textAlign:'center'}}>Welcome Mayer Franklin!</Text>
+        <Text style={{fontSize:20,marginTop:40,marginBottom:20,textAlign:'center'}} >Welcome Mayer Franklin!</Text>
         <View style={{backgroundColor:'rgb(32,32,32)',height:120,display:'flex',justifyContent:'center'}}>
           <UserListComponent listrevenus={revenuuser} setUserSelected={setUserSelected} />
         </View>

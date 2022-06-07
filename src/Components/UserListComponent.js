@@ -2,7 +2,6 @@
 import React from 'react'
 import { View, Text, ScrollView, StyleSheet,Pressable} from 'react-native';
 import UserComponent from './UserComponent';
-import ChartComponent from './ChartComponent';
 
 
 const UserListComponent = (props) => { 
