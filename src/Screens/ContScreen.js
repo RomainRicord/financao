@@ -26,9 +26,9 @@ const ContScreen = (props) => {
         
         <View style={{display:'flex',justifyContent:'space-around',alignItems:'center',flexDirection:'row'}}>
           <View style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-            <Text>Solde: {Math.ceil(Number(data_()[userselected]))}€</Text>
-            <Text>Dépenses: {individuel().expenses[userselected]}€</Text>
-            <Text>Revenus: {individuel().incomes[userselected]}€</Text>
+            <Text>Solde: {Number(data_()[userselected]).toFixed(2)}€</Text>
+            <Text>Dépenses: {Number(individuel().expenses[userselected]).toFixed(2)}€</Text>
+            <Text>Revenus: {Number(individuel().incomes[userselected]).toFixed(2)}€</Text>
           </View>
           
         </View>

@@ -11,8 +11,8 @@ return (
     <View style={[styles.card,userselected == index ? styles.cardoutline : styles.cardnotoutline]}>
       <Text style={styles.prenom}>{item.user.split(' ')[0]}</Text>
       <Text style={styles.nom}>{item.user.split(' ')[1]}</Text>
-      <Text style={Number(revenu) < 0 ? styles.soldenegative : styles.solde}>{(Math.ceil(Number(revenu))).toLocaleString('en-US', {style: 'currency',
-  currency: 'USD',
+      <Text style={Number(revenu) < 0 ? styles.soldenegative : styles.solde}>{(Number(revenu).toFixed(2)).toLocaleString('fr-FR', {style: 'currency',
+  currency: 'EUR',
 })}</Text>
       <Text>Solde</Text>
      
