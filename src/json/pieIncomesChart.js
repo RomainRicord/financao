@@ -27,34 +27,38 @@ const colorcategory2 = {
     "Autre revenu":"#85db0d"
 }
 
-export const pieIncomesChart = () => {
+export const pieIncomesChart = (userselected) => {
 
     let category = []
 
-    {
-        data.map((item, index) => {
+    console.log("init pieIncomesChart",userselected,data[userselected])
 
-            {
-                item.incomes.map((item2, index2) => {
+    
+    data[userselected].incomes.map((item2, index2) => {
 
-                    if (typeof (category[item2.category]) == "undefined") {
-                        category[item2.category] = {amount:0,category:item2.category,color:colorcategory2[item2.category]}
-                        console.log("Category " + item2.category + " is undefined")
-                    }
-
-                    //console.log("Inscription", item2.date, Number(item2.amount.replace("€", "").replace(",", "")), index)
-
-                    const n = Math.ceil(Number(item2.amount.replace("€", "").replace(",", "")))
-
-                    category[item2.category] = {amount:category[item2.category].amount+n,category:item2.category,color:colorcategory2[item2.category]}
+                if (typeof (category[item2.category]) == "undefined") {
+                    category[item2.category] = {amount:0,category:item2.category,color:colorcategory2[item2.category]}
+                    //console.log("Category " + item2.category + " is undefined")
                     
-                })
-            }
+                }
 
-        })
-    }
+                //console.log("Inscription", item2.date, Number(item2.amount.replace("€", "").replace(",", "")), index)
 
+                const n = Math.ceil(Number(item2.amount.replace("€", "").replace(",", "")))
+
+                category[item2.category] = {name:item2.category,amount:category[item2.category].amount+n,category:item2.category,color:colorcategory2[item2.category]}
+                
+                console.log(category[item2.category])
+
+    })
+    
+    
+
+    
     let line = []
+
+    console.log("entries",userselected)
+
 
     for (const [k,v] of Object.entries(category)) {
 
@@ -72,9 +76,9 @@ export const pieIncomesChart = () => {
         
         line.push(t)
     }
-    
-
     //console.log(date)
+
+    //console.log(category)
 
     return { line }
 }

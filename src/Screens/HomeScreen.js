@@ -12,7 +12,8 @@ import data from "../../assets/data.json";
 
 
 const HomeScreen = (props) => {
-  const [userselected, setUserSelected] = useState(0)
+
+  const {userselected,setUserSelected} = props
   //const [data_, setdata_] = useState([])
 
   return (
