@@ -4,10 +4,12 @@ import HomeScreen from '../Screens/HomeScreen';
 import AccountScreen from '../Screens/AccountScreen';
 import StatScreen from '../Screens/StatScreen';
 import ContScreen from '../Screens/ContScreen';
+import NavigationHome from './NavigationHome'
 
 const AppBarBottom = () => {
 
     const [userselected, setUserSelected] = React.useState(0)
+    const [selector,setSelector] = React.useState(0)
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         { key: 'home', title: 'Accueil', icon: 'home' },
@@ -15,7 +17,7 @@ const AppBarBottom = () => {
         { key: 'stat', title: 'Statistiques', icon: 'chart-bar'}
     ]);
 
-    const HomeRoute = () => <HomeScreen userselected={userselected} setUserSelected={setUserSelected} />
+    const HomeRoute = () => <NavigationHome selector={selector} setSelector={setSelector} userselected={userselected} setUserSelected={setUserSelected} />
     const AccountRoute = () => <ContScreen userselected={userselected} setUserSelected={setUserSelected}/>
     const StatRoute = () => <StatScreen userselected={userselected} setUserSelected={setUserSelected} />
 

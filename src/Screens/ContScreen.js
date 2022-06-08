@@ -10,6 +10,8 @@ import {expensesandincomes} from '../json/expensesandincomes'
 
 import data from "../../assets/data.json";
 
+import { individuel } from "../json/individuel";
+
 
 const ContScreen = (props) => {
   const {userselected,setUserSelected} = props
@@ -23,9 +25,11 @@ const ContScreen = (props) => {
         <Text style={{fontSize:20,marginTop:40,marginBottom:20,textAlign:'center'}}>Welcome {data[userselected].user}!</Text>
         
         <View style={{display:'flex',justifyContent:'space-around',alignItems:'center',flexDirection:'row'}}>
-          <Pressable style={[styles.button,{backgroundColor:'#314BCE'}]} onPress={() => {}}>
-            <Text style={styles.textbutton}>Solde</Text>
-          </Pressable>
+          <View style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+            <Text>Solde: {Math.ceil(Number(data_()[userselected]))}€</Text>
+            <Text>Dépenses: {individuel().expenses[userselected]}€</Text>
+            <Text>Revenus: {individuel().incomes[userselected]}€</Text>
+          </View>
           
         </View>
         <ScrollView style={{height:300,marginTop:20,marginBottom:40,flex:1,display:'flex'}}>

@@ -10,7 +10,7 @@ import { Dimensions } from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const ExpensesFScreen = () => {
+const ExpensesFScreen = ({selector,setSelector,userselected,setUserSelected}) => {
      const [user, setUser] = useState('')
     // const [amount, setAmount] = useState('')
     // const [date, setDate] = useState(new Date())
@@ -155,7 +155,12 @@ const ExpensesFScreen = () => {
                                 <Text style={styles.error}>{errors.comments}</Text>
                             }
                             {/* <Button label='Enregistrer' onPress={handleSubmit} /> */}
-                            <Pressable style={[styles.button,{backgroundColor:'blue'}]} onPress={handleSubmit}>
+                            <Pressable style={[styles.button,{backgroundColor:'blue'}]} onPress={() => {
+                                handleSubmit()
+                                if (isValid) {
+                                    setSelector(0)
+                                }
+                            }}>
                                 <Text style={styles.textbutton}>Enregistrer</Text>
                             </Pressable>
                     

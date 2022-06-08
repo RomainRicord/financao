@@ -2,7 +2,7 @@ const data = require('../../assets/data.json');
 
 export const data_ = () => {
 
-    const revenuuser = []
+    let revenuuser = []
 
     {data.map((item, index) => {
         {item.incomes.map((item2, index2) => {              
@@ -13,7 +13,7 @@ export const data_ = () => {
                 revenuuser[index] = 0
             }
 
-            revenuuser[index] = Math.ceil(Number(revenuuser[index]) + Number(item2.amount.replace("€","").replace(",","")))
+            revenuuser[index] = Number(revenuuser[index]) + Number(item2.amount.replace("€","").replace(",",""))
 
           }
   
@@ -29,7 +29,7 @@ export const data_ = () => {
 
             //console.log("MOINS")
 
-            revenuuser[index] = Math.ceil(Number(revenuuser[index]) - Number(item2.amount.replace("€","").replace(",","")))
+            revenuuser[index] = Number(revenuuser[index]) - Number(item2.amount.replace("€","").replace(",",""))
 
           }
   

@@ -10,10 +10,11 @@ import {expensesandincomes} from '../json/expensesandincomes'
 
 import data from "../../assets/data.json";
 
+import { createStackNavigator } from '@react-navigation/stack';
 
-const HomeScreen = (props) => {
 
-  const {userselected,setUserSelected} = props
+const HomeScreen = ({selector,setSelector,userselected,setUserSelected}) => {
+
   //const [data_, setdata_] = useState([])
 
   return (
@@ -23,10 +24,10 @@ const HomeScreen = (props) => {
           <UserListComponent userselected={userselected} listrevenus={data_()} setUserSelected={setUserSelected} />
         </View>
         <View style={{display:'flex',justifyContent:'space-around',alignItems:'center',flexDirection:'row'}}>
-          <Pressable style={[styles.button,{backgroundColor:'green'}]} onPress={() => {}}>
+          <Pressable style={[styles.button,{backgroundColor:'green'}]} onPress={() => {setSelector(2)}}>
             <Text style={styles.textbutton}>Revenu</Text>
           </Pressable>
-          <Pressable style={[styles.button,{backgroundColor:'red'}]} onPress={() => {}}>
+          <Pressable style={[styles.button,{backgroundColor:'red'}]} onPress={() => {setSelector(1)}}>
              <Text style={styles.textbutton}>Dépense</Text>
           </Pressable>
         </View>
