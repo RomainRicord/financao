@@ -1,21 +1,18 @@
 import data from '../../assets/data.json';
 
 const colorcategory = {
-    "Alimentation":"#ff0000",
-    "Transport":"#00ff00",
-    "Factures":"#0000ff",
+    "Alimentaire":"#ff0000",
+    "Factures":"#00ff00",
+    "Transport":"#0000ff",
     "Santé":"#db6a0d",
-    "Divers":"#00ffff",
-    "Impôts":"#ffff00",
-    "Assurance":"#ff00ff",
-    "Loyer":"#630ddb",
-    "Salaire":"#85db0d",
-    "Autres":"#7f4ff7",
-    "Dépenses":"#e3445f",
-    "Autres":"#11d94d",
+    "Logement":"#00ffff",
+    "Divertissement":"#ffff00",
+    "Vacances":"#ff00ff",
+    "Shopping":"#630ddb",
+    "Autre":"#11d94d",
 }
 
-const colorcategory2 = {
+const colorcategory_incomes2 = {
     "Prestations sociales":"#ff0000",
     "Revenu foncier":"#00ff00",
     "Salaire et assimilé":"#0000ff",
@@ -29,38 +26,78 @@ const colorcategory2 = {
 
 export const pieIncomesChart = (userselected) => {
 
-    let category = []
+    let category_incomes = []
+    let category_expenses = []
+
 
     console.log("init pieIncomesChart",userselected,data[userselected])
 
     
     data[userselected].incomes.map((item2, index2) => {
 
-                if (typeof (category[item2.category]) == "undefined") {
-                    category[item2.category] = {amount:0,category:item2.category,color:colorcategory2[item2.category]}
-                    //console.log("Category " + item2.category + " is undefined")
-                    
-                }
+        if (typeof (category_incomes[item2.category]) == "undefined") {
+            category_incomes[item2.category] = {amount:0,category:item2.category,color:colorcategory_incomes2[item2.category]}
+            //console.log("Category " + item2.category + " is undefined")
+            
+        }
 
-                //console.log("Inscription", item2.date, Number(item2.amount.replace("€", "").replace(",", "")), index)
+        //console.log("Inscription", item2.date, Number(item2.amount.replace("€", "").replace(",", "")), index)
 
-                const n = Math.ceil(Number(item2.amount.replace("€", "").replace(",", "")))
+        const n = Math.ceil(Number(item2.amount.replace("€", "").replace(",", "")))
 
-                category[item2.category] = {name:item2.category,amount:category[item2.category].amount+n,category:item2.category,color:colorcategory2[item2.category]}
-                
-                console.log(category[item2.category])
+        category_incomes[item2.category] = {name:item2.category,amount:category_incomes[item2.category].amount+n,category:item2.category,color:colorcategory_incomes2[item2.category]}
+        
+        console.log(category_incomes[item2.category])
 
     })
     
     
+    data[userselected].expenses.map((item2, index2) => {
 
+        if (typeof (category_expenses[item2.category]) == "undefined") {
+            category_expenses[item2.category] = {amount:0,category:item2.category,color:colorcategory[item2.category]}
+            //console.log("Category " + item2.category + " is undefined")
+            
+        }
+    
+        //console.log("Inscription", item2.date, Number(item2.amount.replace("€", "").replace(",", "")), index)
+    
+        const n = Math.ceil(Number(item2.amount.replace("€", "").replace(",", "")))
+    
+        category_expenses[item2.category] = {name:item2.category,amount:category_expenses[item2.category].amount+n,category:item2.category,color:colorcategory[item2.category]}
+        
+        console.log(category_expenses[item2.category])
+    
+    })
+    
+    let line2 = []
+
+    console.log("entries",userselected)
+
+
+    for (const [k,v] of Object.entries(category_expenses)) {
+
+        let t = {}
+
+        //console.log("Inscription", item, index)
+
+        t.name = v.category
+        t.amount = v.amount
+        t.color = v.color
+        t.legendFontColor = "#7F7F7F"
+        t.legendFontSize = 15
+
+        console.log('push', t)
+        
+        line2.push(t)
+    }
     
     let line = []
 
     console.log("entries",userselected)
 
 
-    for (const [k,v] of Object.entries(category)) {
+    for (const [k,v] of Object.entries(category_incomes)) {
 
         let t = {}
 
@@ -80,7 +117,7 @@ export const pieIncomesChart = (userselected) => {
 
     //console.log(category)
 
-    return { line }
+    return { line2, line }
 }
 
 

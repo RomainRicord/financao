@@ -5,13 +5,36 @@ import {  LineChart,   BarChart,  PieChart,  ProgressChart, ContributionGraph, S
 
 import {chart} from '../json/chart'
 
-const ChartComponent = () => {
+const ChartComponent = ({userselected}) => {
 
     return (
         <SafeAreaView style={styles.container}>
-        
+        <Text>Analyse des revenus</Text>
         <BarChart
-          data={chart().line}
+          data={chart(userselected).line}
+          width={Dimensions.get('window').width} // from react-native
+          height={600}
+          yAxisSuffix={' €'}
+          chartConfig={{
+            backgroundColor: '#07034e',
+            backgroundGradientFrom: '#07034e',
+            backgroundGradientTo: '#090979',
+            decimalPlaces: 0, // optional, defaults to 2dp
+            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+            style: {
+              borderRadius: 0,
+            }
+          }}
+          fromZero={true}
+          style={{
+            borderRadius: 0
+          }}
+          showValuesOnTopOfBars={true}
+          yAxisInterval={1}
+        />
+        <Text>Analyse des dépenses</Text>
+        <BarChart
+          data={chart(userselected).line2}
           width={Dimensions.get('window').width} // from react-native
           height={600}
           yAxisSuffix={' €'}
