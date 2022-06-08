@@ -14,16 +14,12 @@ import IncomesFScreens from './src/Screens/IncomesFScreens';
 import ContScreen from './src/Screens/ContScreen';
 import IncomesFScreen from './src/Screens/IncomesFScreens';
 
->>>>>>> Stashed changes
+import StatScreen from './src/Screens/StatScreen';
 
 {/* ____________function App_____________ */}   
 function App() {
   return (
-<<<<<<< Updated upstream
-    <IncomesFScreens/>    
-=======
-    <IncomesFScreen/>    
->>>>>>> Stashed changes
+    <AppBarBottom/>    
   );
 }
 

@@ -18,7 +18,7 @@ const AppBarBottom = () => {
 
     const renderScene = BottomNavigation.SceneMap({
         home: HomeRoute,
-        account: AccountRoute,
+        account: AccountScreen,
         stat: StatRoute,
     });
 
