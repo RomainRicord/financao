@@ -12,15 +12,16 @@ import {
 
 import {pieIncomesChart} from '../json/pieIncomesChart'
 
-const StatScreen = () => {
+const StatScreen = (props) => {
 
-    console.log(pieIncomesChart().line)
+    const {userselected,setUserSelected} = props
+
 
     return (
         <View style={{display:'flex',justifyContent:'center',alignItems:'center',flex:1}}>
         <Text>Statistique des revenus</Text>
         <PieChart
-          data={pieIncomesChart().line}
+          data={pieIncomesChart(Number(userselected)).line}
           width={200} // from react-native
           height={240}
           chartConfig={{
@@ -43,10 +44,10 @@ const StatScreen = () => {
         />
 
         
-          {pieIncomesChart().line.map((item,index) => {
+          {pieIncomesChart(Number(userselected)).line.map((item,index) => {
             return(
-              <View style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
-                <View style={{backgroundColor:item.color,width:20,height:20,borderRadius:40,marginRight:10}}></View><Text style={{fontSize:20}}>{item.name} - {item.amount}€</Text>
+              <View key={index} style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+                <View style={{backgroundColor:item.color,width:20,height:20,borderRadius:40,marginRight:10}}></View><Text style={{fontSize:20}}>{item.name} -> {item.amount}€</Text>
               </View>
             )
           })}

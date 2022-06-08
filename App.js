@@ -8,16 +8,20 @@ import UserListComponent from './src/Components/UserListComponent';
 import TransactionComponent from './src/Components/TransactionComponent';
 import HomeScreen from './src/Screens/HomeScreen';
 import ChartComponent from './src/Components/ChartComponent';
-import AppBarBottom from './src/Navigation/AppBarBottom';
-import IncomesFScreens from './src/Screens/IncomesFScreens'
-import ExpensesFScreen from './src/Screens/ExpensesFScreen';
 
->>>>>>> Stashed changes
+import IncomesFScreens from './src/Screens/IncomesFScreens';
+
+import ContScreen from './src/Screens/ContScreen';
+import IncomesFScreen from './src/Screens/IncomesFScreens';
+
+import StatScreen from './src/Screens/StatScreen';
+
+import AppBarBottom from './src/Navigation/AppBarBottom';
 
 {/* ____________function App_____________ */}   
 function App() {
   return (
-    <ExpensesFScreen/>
+    <AppBarBottom/>    
   );
 }
 

@@ -12,8 +12,11 @@ import data from "../../assets/data.json";
 
 
 const ContScreen = (props) => {
-  const [userselected, setUserSelected] = useState(0)
+  const {userselected,setUserSelected} = props
+    
   //const [data_, setdata_] = useState([])
+
+  //console.log("PROPS OF CONTSCREEN",props)
 
   return (
   <View style={styles.container}>
