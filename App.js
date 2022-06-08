@@ -8,7 +8,8 @@ import UserListComponent from './src/Components/UserListComponent';
 import TransactionComponent from './src/Components/TransactionComponent';
 import HomeScreen from './src/Screens/HomeScreen';
 import ChartComponent from './src/Components/ChartComponent';
-import IncomesFScreens from './src/Screens/IncomesFScreens';
+import AppBarBottom from './src/Navigation/AppBarBottom';
+import IncomesFScreens from './src/Screens/IncomesFScreens'
 
 import AppBarBottom from './src/Navigation/AppBarBottom';
 import StatScreen from './src/Screens/StatScreen';
