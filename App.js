@@ -10,10 +10,13 @@ import HomeScreen from './src/Screens/HomeScreen';
 import ChartComponent from './src/Components/ChartComponent';
 import IncomesFScreens from './src/Screens/IncomesFScreens';
 
+import AppBarBottom from './src/Navigation/AppBarBottom';
+import StatScreen from './src/Screens/StatScreen';
+
 {/* ____________function App_____________ */}   
 function App() {
   return (
-    <IncomesFScreens/>    
+    <StatScreen/>    
   );
 }
 

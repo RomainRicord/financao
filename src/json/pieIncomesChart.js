@@ -1,6 +1,31 @@
 import data from '../../assets/data.json';
 
-import dayjs from 'dayjs'
+const colorcategory = {
+    "Alimentation":"#ff0000",
+    "Transport":"#00ff00",
+    "Factures":"#0000ff",
+    "Santé":"#db6a0d",
+    "Divers":"#00ffff",
+    "Impôts":"#ffff00",
+    "Assurance":"#ff00ff",
+    "Loyer":"#630ddb",
+    "Salaire":"#85db0d",
+    "Autres":"#7f4ff7",
+    "Dépenses":"#e3445f",
+    "Autres":"#11d94d",
+}
+
+const colorcategory2 = {
+    "Prestations sociales":"#ff0000",
+    "Revenu foncier":"#00ff00",
+    "Salaire et assimilé":"#0000ff",
+    "Revenu financier":"#db6a0d",
+    "Pension alimentaire":"#00ffff",
+    "Rente":"#ffff00",
+    "Allocation chômage":"#ff00ff",
+    "Revenu exceptionnel":"#630ddb",
+    "Autre revenu":"#85db0d"
+}
 
 export const pieIncomesChart = () => {
 
@@ -10,53 +35,46 @@ export const pieIncomesChart = () => {
         data.map((item, index) => {
 
             {
-                item.expenses.map((item2, index2) => {
+                item.incomes.map((item2, index2) => {
 
                     if (typeof (category[item2.category]) == "undefined") {
-                        category[item2.category] = 0
+                        category[item2.category] = {amount:0,category:item2.category,color:colorcategory2[item2.category]}
+                        console.log("Category " + item2.category + " is undefined")
                     }
 
-                    console.log("Inscription", item2.date, Number(item2.amount.replace("€", "").replace(",", "")), index)
+                    //console.log("Inscription", item2.date, Number(item2.amount.replace("€", "").replace(",", "")), index)
 
                     const n = Math.ceil(Number(item2.amount.replace("€", "").replace(",", "")))
 
-                    category[item2.category] = category[item2.category] + n
-
+                    category[item2.category] = {amount:category[item2.category].amount+n,category:item2.category,color:colorcategory2[item2.category]}
+                    
                 })
             }
 
         })
     }
 
+    let line = []
 
+    for (const [k,v] of Object.entries(category)) {
 
-    let line = {
+        let t = {}
 
-    };
+        //console.log("Inscription", item, index)
 
+        t.name = v.category
+        t.amount = v.amount
+        t.color = v.color
+        t.legendFontColor = "#7F7F7F"
+        t.legendFontSize = 15
 
-
-    {
-        category.map((item, index) => {
-            line.push(item)
-
-            //console.log(item)
-
-            // {item.map((item2,index2) => {
-
-            //     line.datasets[0].data[indexor] = Math.ceil(line.datasets[0].data[indexor] + Math.ceil(item2.amount))
-
-            // })}
-
-            //console.log(dayjs(item2.date).locale('fr-FR').format('MM'),Math.ceil(item2.amount))
-
-            //line.labels[line.labels.length+1] = dayjs(date).locale('fr-FR').format('MM')
-            //line.datasets[0].data[line.datasets[0].data.length+1] = Math.ceil(item2.amount)
-
-        })
+        console.log('push', t)
+        
+        line.push(t)
     }
+    
 
-    console.log(date)
+    //console.log(date)
 
     return { line }
 }
